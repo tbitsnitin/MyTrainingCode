@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"    
+      xmlns:h="http://java.sun.com/jsf/html">
+ 
+    <h:head>
+    	<title>JSF 2.0 Hello World</title>
+    </h:head>
+    <h:body bgcolor="blue">
+    	<h:form>
+    	    <br/>
+    	   <h:commandButton value="BACK" action="employeepanel" ></h:commandButton>
+    	   <br/><br/><br/>
+    	   
+    	
+    	   <br/>
+    	   <h:outputLabel value="Employee Id:           " style="font-weight:bold" />
+    	   <h:inputText value="#{employeeBean.employee_Id}"></h:inputText>
+       	
+       		<br/>
+    	  
+    	  
+    	<script type="text/javascript">
+		function show_alert()
+		{
+			alert("Deleted!");
+		}
+		</script>
+		
+		<br/>
+    	<h:commandButton value="Delete" action="#{employeeBean.DeleteEmployee()}" onclick="show_alert()" ></h:commandButton>
+    	
+    	<h:outputLabel value="Operation status:           " style="font-weight:bold" />
+    	<h:outputText value="#{employeeBean.status}" ></h:outputText>
+    	      
+    	       	
+       	</h:form>
+   
+    </h:body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html">
+ 
+    <h:head>
+        <title>Employee Database System</title>
+    </h:head>
+    <h:body>
+    
+    	<h3>Welcome to Employee Database System </h3>
+    	<h:form>
+        	<br/>
+    	   <h:commandButton value="BACK" action="employeepanel" ></h:commandButton>
+    	   <br/><br/><br/>
+    	   
+    	
+    		<br/>
+    	   <h:outputLabel value="Employee Id:           " style="font-weight:bold" />
+    	   <h:inputText value="#{employeeBean.employee_Id}"></h:inputText>
+    		<br/>    	   
+    	   <h:outputLabel value="Employee Name:         " style="font-weight:bold" />
+    	   <h:inputText value= "#{employeeBean.employee_Name}"></h:inputText>
+    	    <br/>
+    	   <h:outputLabel value="Employee Designation:  " style="font-weight:bold" />
+    	   <h:inputText value="#{employeeBean.employee_Designation}"></h:inputText>
+    	    <br/>
+    	   <h:outputLabel value="Employee Salary:       " style="font-weight:bold" />
+    	   <h:inputText value="#{employeeBean.employee_Salary}"></h:inputText>
+    	   
+    	   <br/>
+    	   <h:commandButton value="Add" action="#{employeeBean.addEmployee()}" update= "@form"></h:commandButton>
+    	   
+    	   
+    	   <br/><br/><br/>
+    	   <h:outputLabel value="Operation status:           " style="font-weight:bold" />
+    	   <h:outputText value="#{employeeBean.status}" ></h:outputText>
+    	
+    	</h:form>
+    </h:body>
+</html>

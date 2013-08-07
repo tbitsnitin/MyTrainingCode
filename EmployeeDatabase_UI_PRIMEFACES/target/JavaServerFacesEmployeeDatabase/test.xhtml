@@ -1,0 +1,87 @@
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	 xmlns:h="http://java.sun.com/jsf/html"
+	 xmlns:p="http://primefaces.org/ui"
+	 xmlns:f="http://java.sun.com/jsf/core">
+ <h:head>
+ </h:head>
+ 	<h:body>
+	
+		 <p:editor />
+	
+		 <p:accordionPanel dynamic="true">
+				 <p:tab title="First Tab Title">
+				 	 <h:outputText value= "Lorem"/>
+				 	 ...More content for first tab
+				 </p:tab>
+				 <p:tab title="Second Tab Title">
+				 	 <h:outputText value="Ipsum" />
+				 </p:tab>
+				 //any number of tabs
+		</p:accordionPanel>
+		
+		
+		 <h:panelGrid columns="1" cellpadding="1">  
+			        <h:outputLabel for="name" value="Name:" style="font-weight:bold"/>  
+			          
+			        <p:inputText id="name" value="#{employeeBean.employee_Name}" />  
+			          
+			        <p:commandButton value="Submit" update="display"/>  
+			  
+			        <h:outputText value="#{employeeBean.employee_Name}" id="display" />  
+	    </h:panelGrid>  
+	 
+	 
+	 
+	 
+	 <h:form id="form"> 
+	 
+	 
+	 
+	   <p:panel id="panel" header="New Person" style="margin-bottom:10px;">  
+		        <p:messages id="messages" />  
+		        <h:panelGrid columns="3">  
+		            <h:outputLabel for="firstname" value="Firstname: *" />  
+		            <p:inputText id="firstname"   
+		                value="#{empoyeeBean.employee_Name}" required="true" label="Firstname">  
+		                <f:validateLength minimum="2" />  
+		            </p:inputText>  
+		            <p:message for="firstname" />  
+		  
+		            <h:outputLabel for="surname" value="Surname: *" />  
+		            <p:inputText id="surname"   
+		                value="#{pprBean.surname}" required="true" label="Surname"/>  
+		            <p:message for="surname" />  
+		        </h:panelGrid>  
+      </p:panel>  
+  
+    <p:commandButton value="Ajax Submit" update="panel,display" id="ajax"  
+             actionListener="#{pprBean.savePerson}" styleClass="ui-priority-primary"/>  
+  
+    <p:commandButton value="Non-Ajax Submit" actionListener="#{pprBean.savePerson}"   
+            ajax="false" />  
+  
+    <p:commandButton value="With Icon" actionListener="#{pprBean.savePerson}" id="withIcon"   
+            update="panel,display" icon="ui-icon-disk" />  
+  
+    <p:commandButton actionListener="#{pprBean.savePerson}" update="panel,display" id="iconOnly"  
+            icon="ui-icon-disk" title="Icon Only"/>  
+  
+    <p:commandButton value="Disabled" disabled="true" id="disabled" />  
+  
+    <p:panel id="display" header="Information" style="margin-top:10px;">  
+        <h:panelGrid columns="2">  
+            <h:outputText value="Firstname: " />  
+            <h:outputText value="#{empoyeeBean.employee_Name}" />  
+  
+            <h:outputText value="Surname: " />  
+            <h:outputText value="#{pprBean.surname}" />  
+        </h:panelGrid>  
+    </p:panel>  
+    
+    </h:form>>
+    
+    
+    
+ 	</h:body>
+ 	
+</html>

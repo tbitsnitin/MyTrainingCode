@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+        <title>Employee Database System</title>
+    </h:head>
+    <h:body>
+    
+    	<h3 align="center">
+   				 			Welcome to Employee Database System 
+    	</h3>
+    	<h:form>
+	    	   
+	    	   <p:panel id="Update" header="Update Utility" style="margin-bottom:10px;">  
+				    		 <h:panelGrid columns="2">
+				    	 
+		    	  				 <h:outputLabel value="Employee Id:           " style="font-weight:bold" />
+		    	   				 <h:inputText value="#{employeeBean.employee_Id}"></h:inputText>
+		  	   			 
+	    			   			 <p:commandButton value="Fetch" update= "Current" ajax="false" action="#{employeeBean.FetchEmployee(1)}" />
+	    					</h:panelGrid>
+	    		</p:panel>
+	    		
+	    		<p:panel id="Current" header="Current Information" style="margin-bottom:10px;">  
+						    <h:panelGrid columns="2">
+				
+		    					 <h:outputLabel value="Employee ID:  " style="font-weight:bold" />
+					    		 <h:outputText value= "#{employeeBean.employee_Id}"/>
+		    		
+		    					 <h:outputLabel value="Employee Name: " style="font-weight:bold" />
+					    		 <h:outputText value= "#{employeeBean.employee_Name}"/>
+		
+					    		 <h:outputLabel value="Employee Designation:   " style="font-weight:bold" />
+		    	   				 <h:outputText value="#{employeeBean.employee_Designation}"/>
+		
+						    	 <h:outputLabel value="Employee Salary:       " style="font-weight:bold" />
+						    	 <h:outputText value="#{employeeBean.employee_Salary}"/>
+	    	   				</h:panelGrid>
+	    	   </p:panel>
+	    
+	    
+	    		<p:panel id="update" header="Please update Information" style="margin-bottom:10px;">  
+						    <h:panelGrid columns="6">
+					
+		    					 <h:outputLabel value="Employee Name:         " style="font-weight:bold" />
+					    		 <p:inputText value= "#{employeeBean.employee_Name}"/>
+		
+					    		 <h:outputLabel value="Employee Designation:  " style="font-weight:bold" />
+		    	   				 <p:inputText value="#{employeeBean.employee_Designation}"/>
+		
+						    	 <h:outputLabel value="Employee Salary:       " style="font-weight:bold" />
+						    	 <p:inputText value="#{employeeBean.employee_Salary}"/>
+	    	   
+	    	   					 <p:commandButton value="Update" update = "update" action="#{employeeBean.UpdateEmployee()}" />
+						   	     <p:commandButton value="BACK" action="employeepanel" />
+	    	   		    	   					 
+	    	   		    	   	 
+						    	 <h:outputLabel value="Operation status:           " style="font-weight:bold" />
+						    	 <h:outputText value="#{employeeBean.status}" ></h:outputText>	
+	    	   				
+	    	   				</h:panelGrid>
+	    	   </p:panel>
+    	   </h:form>
+    </h:body>
+</html>

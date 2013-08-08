@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+    	<title>JSF 2.0 Hello World</title>
+    </h:head>
+    
+    <h:body bgcolor="blue">
+    	<h:form>
+    	   
+<!-- =================================View Panel============================================ -->
+			 
+			 <p:panel id="view" header="#{employee.RefershAll()} View Utility" style="margin-bottom:10px;">  
+				 <p:messages id="messages" />  
+			    		 <h:panelGrid columns="2">
+			    	  
+					    	   <p:outputLabel value="Employee Id:           " style="font-weight:bold" />
+					    	   <p:inputText value="#{employeeBean.employee_Id}"/>
+					       	   <p:commandButton value="Display" update= ":EmployeeDetail" action="#{employeeBean.ViewEmployee()}" oncomplete="dlg3.show()" style= "font-size:75%;" />
+					   	       <p:commandButton value="BACK" action="employeepanel" style="font-size:75%;" />   	      
+					      </h:panelGrid>
+				</p:panel>  
+			    
+			    
+	  	</h:form>
+   		 
+    
+<!-- =================================Dialog box============================================ -->
+	
+		<p:dialog id="EmployeeDetail" header="Employee Details" widgetVar="dlg3"  height="100"> 
+    		        <h:panelGrid columns="2">
+			            <h:outputText value="Name: " />  
+			            <h:outputText value="#{employeeBean.employee_Name}" />  
+			  
+			            <h:outputText value="ID: " />  
+			            <h:outputText value="#{employeeBean.employee_Id}" />  
+			
+			
+			            <h:outputText value="Designation: " />  
+			            <h:outputText value="#{employeeBean.employee_Designation}" />  
+			  
+			            <h:outputText value="Salary: " />  
+			            <h:outputText value="#{employeeBean.employee_Salary}" />  
+		  			</h:panelGrid>
+		</p:dialog>
+	
+    </h:body>
+           	
+   
+</html>

@@ -1,0 +1,16 @@
+12:01:29,396 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+12:01:29,760 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.1) : Enhancement of classes
+12:01:30,061 (main) INFO  [DataNucleus.Enhancer] - Writing class file "/home/nitingupta/NitinMaven/EmployeeDatabase/target/classes/com/tbits/common/Employee.class" with enhanced definition
+12:01:30,061 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=240 ms, enhance=56 ms, total=296 ms. Consult the log for full details
+12:07:16,148 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+12:07:16,473 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.1) : Enhancement of classes
+12:07:16,756 (main) INFO  [DataNucleus.Enhancer] - Writing class file "/home/nitingupta/NitinMaven/EmployeeDatabase/target/classes/com/tbits/common/Employee.class" with enhanced definition
+12:07:16,757 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=226 ms, enhance=53 ms, total=279 ms. Consult the log for full details
+12:15:12,461 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+12:15:12,799 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.1) : Enhancement of classes
+12:15:13,087 (main) INFO  [DataNucleus.Enhancer] - Writing class file "/home/nitingupta/NitinMaven/EmployeeDatabase/target/classes/com/tbits/common/Employee.class" with enhanced definition
+12:15:13,087 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=231 ms, enhance=53 ms, total=284 ms. Consult the log for full details
+12:15:43,426 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+12:15:43,799 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.1) : Enhancement of classes
+12:15:44,106 (main) INFO  [DataNucleus.Enhancer] - Class "com.tbits.common.Employee" is already enhanced.
+12:15:44,106 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=260 ms, enhance=41 ms, total=301 ms. Consult the log for full details

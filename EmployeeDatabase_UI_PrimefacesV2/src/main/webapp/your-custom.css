@@ -1,0 +1,11 @@
+/*** override primefaces style ***/
+.ui-message-info,.ui-message-error,.ui-message-warn,.ui-message-fatal {
+	border: 0!important;
+	margin: 0!important;
+	padding: 0!important;
+}
+ 
+.ui-messages-error,.ui-message-error {
+	color: #D8000C;
+	background-color: #fff!important;
+}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+        <title>Employee Database System</title>
+    </h:head>
+    <h:body>
+    
+    
+    	<h3>Welcome to Employee Database System </h3>
+    	<h:form>
+    
+    <!-- =============================== using prime faces, Entry panel ====================================================-->
+    
+			   <p:panel id="panel" header="#{employeeBean.RefershAll()} New Employee" style="margin-bottom:10px;">  
+				        <p:messages id="messages" />  
+				        <h:panelGrid columns="6">  
+		
+				            <h:outputLabel for="Employee Name" value="Name: *" />  
+				            <p:inputText id="Name"   
+				                value="#{employeeBean.employee_Name}" required="true" label="Name">  
+				                <f:validateLength minimum="2" />  
+				            </p:inputText>  
+				            <p:message for="Name" />  
+				  
+				            <h:outputLabel for="Employee Id" value="ID: *" />  
+				            <p:inputText id="ID"   
+				                value="#{employeeBean.employee_Id}" required="true" label="ID">
+				                 <f:validateLength minimum="1" />  
+				            </p:inputText>  
+				            <p:message for="ID" />
+				            
+				            <h:outputLabel for="Employee Designation" value="Designation: *" />  
+				            <p:inputText id="Designation"   
+				                value="#{employeeBean.employee_Designation}" required="true" label="Designation"/>  
+				            <p:message for="Designation" />
+				              
+				            
+				            <h:outputLabel for="Employee Salary" value="Salary: *" />  
+				            <p:inputText id="Salary"   
+				                value="#{employeeBean.employee_Salary}" required="true" label="Salary"/>  
+				            
+				              
+				        </h:panelGrid>
+			
+						<p:commandButton value="Add" style="font-size:75%;" update=":AddConfirm" id="Add"   
+			            	 action="#{employeeBean.addEmployee()}" oncomplete = "dlg3.show()" styleClass="ui-priority-primary" />  
+			  
+			  
+			      	    <p:commandButton value="Back" update="panel" id="Back"  
+			            	 action="employeepanel" immediate="true" style="font-size:75%;" styleClass="ui-priority-primary"/>  
+			       
+		      </p:panel>  
+  
+    	</h:form>
+    	
+    	<!-- ============================ Add confirmation dialog ==========================================-->
+    	<p:dialog id="AddConfirm" header="Employee Detail has added successfully " widgetVar="dlg3"  height="100"> 
+    		        <h:panelGrid columns="2">
+			            <h:outputText value="Name: " />  
+			            <h:outputText value="#{employeeBean.employee_Name}" />  
+			  
+			            <h:outputText value="ID: " />  
+			            <h:outputText value="#{employeeBean.employee_Id}" />  
+			
+			
+			            <h:outputText value="Designation: " />  
+			            <h:outputText value="#{employeeBean.employee_Designation}" />  
+			  
+			            <h:outputText value="Salary: " />  
+			            <h:outputText value="#{employeeBean.employee_Salary}" />  
+		  			</h:panelGrid>
+		</p:dialog>
+    </h:body>
+</html>

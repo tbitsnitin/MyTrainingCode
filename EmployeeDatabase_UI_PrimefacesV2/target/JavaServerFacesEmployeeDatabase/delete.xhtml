@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+    	<title>JSF 2.0 Hello World</title>
+    </h:head>
+    <h:body bgcolor="blue">
+    	
+    	<h:form>
+	
+<!-- ================================= Fetch Panel ============================================ -->
+    	   
+    	   <p:panel id="Fetch" header="#{employeeBean.RefershAll()}  Fetch Utility" style="margin-top:10px;">  
+		        <h:panelGrid columns="2">  
+    	
+	    		   	<p:outputLabel value="Employee Id:           " style="font-weight:bold" />
+	    	   		<p:inputText value="#{employeeBean.employee_Id}"/>
+	       	   
+	    	   		<p:commandButton value="Fetch" update= "Display" ajax="false" style="font-size:75%;" action="#{employeeBean.FetchEmployee(2)}" />
+	    	   	
+	    		 </h:panelGrid>
+    	   </p:panel>
+
+<!-- =================================Display Employee Details============================================ -->
+       	
+       	<p:panel id="Display" header="Employee Details" style="margin-top:10px;">  
+		        <h:panelGrid columns="2">  
+    
+			            <h:outputText value="Name: " />  
+			            <h:outputText value="#{employeeBean.employee_Name}" />  
+			  
+			            <h:outputText value="ID: " />  
+			            <h:outputText value="#{employeeBean.employee_Id}" />  
+			
+			
+			            <h:outputText value="Designation: " />  
+			            <h:outputText value="#{employeeBean.employee_Designation}" />  
+			  
+			            <h:outputText value="Salary: " />  
+			            <h:outputText value="#{employeeBean.employee_Salary}" />  
+	    	
+	    	   	
+	    	   			<p:commandButton value="Delete" update= ":Deleted" style="font-size:75%;" action="#{employeeBean.DeleteEmployee()}" oncomplete="dlg3.show()" />
+	    		   		<p:commandButton style="font-size:75%;" value="BACK" action="employeepanel" />
+	    	   		
+	    		 </h:panelGrid>
+    	   </p:panel>
+    	       	
+       	</h:form>
+       	    
+<!-- =================================Dialog box============================================ -->
+	
+		<p:dialog id="Deleted" header="#{employeeBean.status}" widgetVar="dlg3"  height="100"> 
+    		        <h:panelGrid columns="2">
+			  
+			            <h:outputText value="Id: " />  
+			            <h:outputText value="#{employeeBean.employee_Id} Deleted"  />  
+			             
+		  			</h:panelGrid>
+		</p:dialog>
+	
+   
+    </h:body>
+</html>

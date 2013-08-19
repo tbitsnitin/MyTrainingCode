@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+ 
+  <h:head>
+        <title>Employee Database System</title>
+    	<h:outputStylesheet name="css/style.css" />
+		
+  </h:head>
+		  <h:body background-color="d0e4fe">
+		  		<h:form id="form">  
+				    <p:growl id="growl" showDetail="true" life="3000" />  
+				  
+				    <h:outputLink id="loginLink" value="javascript:void(0)" onclick="dlg.show()"  title="login">   
+				         <p:layoutUnit id="top"   position="top"  height="180" minHeight="100"  >
+				
+					    	<h3 align="center">Welcome to Employee Database System </h3>
+				        	<div align="center">
+				        	<h:graphicImage  value="http://gamel.fk.ugm.ac.id/pluginfile.php?file=/21484/block_html/content/login_img.gif" />  
+							
+							</div>
+				   		</p:layoutUnit>
+				    </h:outputLink>  
+				  
+				    
+				    <p:dialog id="dialog" header="Login" widgetVar="dlg" resizable="false">  
+				  
+				        <h:panelGrid columns="2" cellpadding="5">  
+				            <h:outputLabel for="username" value="Username:" />  
+				            <p:inputText value="#{loginBean.username}"   
+				                    id="username" required="true" label="username" />  
+				              
+				            <h:outputLabel for="password" value="Password:" />  
+				            <h:inputSecret value="#{loginBean.password}"   
+				                    id="password" required="true" label="password" />  
+				              
+				            <f:facet name="footer">  
+				                <p:commandButton id="loginButton" value="Login" update="growl"   
+				                    actionListener="#{loginBean.login}"   
+				                    oncomplete="handleLoginRequest(xhr, status, args)"/>  
+				            </f:facet>  
+				        </h:panelGrid>  
+				          
+				    </p:dialog>  
+				</h:form>  
+				  
+				<script type="text/javascript">  
+				    function handleLoginRequest(xhr, status, args) {  
+				        if(args.validationFailed || !args.loggedIn) {  
+				            dlg.jq.effect("shake", { times:5 }, 100);  
+				        }   
+				        else {  
+				            dlg.hide();  
+				            $('#loginLink').fadeOut();  
+				            window.location="employeepanel.xhtml";
+				            
+				        }  
+				    }  
+				</script>  
+	</h:body>
+</html>

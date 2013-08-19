@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+ 
+ 
+    <h:head>
+        <title>Employee Database System</title>
+    	<h:outputStylesheet name="css/style.css" />
+		
+    </h:head>
+    <h:body background-color="d0e4fe">
+    	
+    	<h:form>
+			<p:accordionPanel>  
+				<p:tab title="Admin Panel">
+		
+		    		<h:panelGrid columns="6" cellpadding="10">  
+	        
+		    	   		<p:commandButton value="Add" style="font-size:75%;" action="#{employeeBean.AddFillNull()}" styleClass="styleOrange"  />
+		    	   		<p:commandButton value="View" style="font-size:75%;" action="#{employeeBean.ViewFillNull()}"  />
+					    <p:commandButton value="Delete" style="font-size:75%;" action="#{employeeBean.DeleteFillNull()}"/>
+					    <p:commandButton value="Update" style="font-size:75%;" action="#{employeeBean.UpdateFillNull()}"/>
+					    <p:commandButton value="List" style="font-size:75%;" action="#{employeeBean.ListEmployee()}"/>
+					    <p:commandButton value="Search" style="font-size:75%;" action="#{employeeBean.SearchFillNull()}"/>
+					    	
+		
+		    		</h:panelGrid>
+		    	</p:tab>
+		    </p:accordionPanel>
+		    
+		    
+
+	    </h:form>
+    </h:body>
+</html>
+
+
+      

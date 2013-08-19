@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+ 
+ 
+    <h:head>
+        <title>Employee Database System</title>
+    	<h:outputStylesheet name="css/style.css" />
+		
+    </h:head>
+    <h:body background-color="d0e4fe">
+    
+    	<h3 align="center">Welcome to Employee Database System </h3>
+    
+    	<h:form>
+    		<p:tabMenu>  
+	    		<p:menuitem value="Search By Id"   action="#{employeeBean.RefershAll()}" url="/searchbyid.jsf" style="font-size:75%;" icon="ui-icon-search"/>  
+	    		<p:menuitem value="Search By Name" action="#{employeeBean.RefershAll()}" url="/searchbyname.jsf" style="font-size:75%;" icon="ui-icon-search" />  
+	    		<p:menuitem value="Search By Designation" action="#{employeeBean.RefershAll()}" url="/searchbydesignation.jsf" style="font-size:75%;" icon="ui-icon-search"/>  
+	    		<p:menuitem value="Search By Salary" action="#{employeeBean.RefershAll()}" url="/searchbysalaryrange.jsf" style="font-size:75%;" icon="ui-icon-search"/>  
+
+			</p:tabMenu>
+
+			<br/> <br/> <br/> <br/> <br/>
+			
+			<div align="center">
+			
+			<h:outputLabel for="Employee ID" value="ID: *" />  
+			<p:inputText id="Id"  value="#{employeeBean.employee_Id}" required="true" label="Id"/>    
+			 
+			<p:commandButton value="Search" icon="ui-icon-search" update= ":ByID" action="#{employeeBean.ViewEmployee()}" oncomplete="dlg1.show()" style= "font-size:75%;" />
+			<p:commandButton value="Back" action="employeepanel" style="font-size:75%;" />   	      
+			</div>		       
+			  
+    	</h:form>		
+		
+    
+<!-- =================================Dialog box============================================ -->
+	
+		<p:dialog id="ByID" header="Employee Details" widgetVar="dlg1" width="400" height="150"> 
+    		        <h:panelGrid columns="2">
+			            <h:outputText value="Name: " />  
+			            <h:outputText value="#{employeeBean.employee_Name}" />  
+			  
+			            <h:outputText value="ID: " />  
+			            <h:outputText value="#{employeeBean.employee_Id}" />  
+			
+			
+			            <h:outputText value="Designation: " />  
+			            <h:outputText value="#{employeeBean.employee_Designation}" />  
+			  
+			            <h:outputText value="Salary: " />  
+			            <h:outputText value="#{employeeBean.employee_Salary}" />  
+		  			</h:panelGrid>
+		</p:dialog>
+	
+
+	
+    </h:body>
+</html>
+
+
+      

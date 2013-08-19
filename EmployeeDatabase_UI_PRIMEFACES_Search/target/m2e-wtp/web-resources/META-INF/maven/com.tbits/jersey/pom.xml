@@ -1,0 +1,238 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.tbits</groupId>
+	<artifactId>jersey</artifactId>
+	<version>1</version>
+	<packaging>war</packaging>
+
+	<name>EmployeeDatabase</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<!-- For junit, requires for maven -->	
+		<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>3.8.1</version>
+				<scope>test</scope>
+		</dependency>
+
+		<!-- For JSF -->	
+	  <dependency>
+			    <groupId>javax.faces</groupId>
+			    <artifactId>jsf-api</artifactId>
+			    <version>2.0</version>
+			    <scope>provided</scope>
+	  </dependency>
+	
+	<!-- For Jersey -->	
+	<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-server</artifactId>
+				<version>1.12</version>
+	</dependency>
+
+	<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-json</artifactId>
+				<version>1.12</version>
+	</dependency>
+
+	<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-client</artifactId>
+				<version>1.12</version>
+	</dependency>
+
+	<!-- For JDO -->	
+	<dependency>
+				<groupId>javax.jdo</groupId>
+				<artifactId>jdo-api</artifactId>
+				<version>3.0</version>
+	</dependency>
+	
+	<!-- For Data nucleus -->	
+	<dependency>
+				<groupId>org.datanucleus</groupId>
+				<artifactId>datanucleus-core</artifactId>
+				<version>3.0.3</version>
+	</dependency>
+
+	<dependency>
+				<groupId>org.datanucleus</groupId>
+				<artifactId>datanucleus-api-jdo</artifactId>
+				<version>3.0.2</version>
+	</dependency>
+
+	<dependency>
+				<groupId>org.datanucleus</groupId>
+				<artifactId>datanucleus-rdbms</artifactId>
+				<version>3.0.2</version>
+	</dependency>
+
+	<dependency>
+				<groupId>org.datanucleus</groupId>
+				<artifactId>datanucleus-enhancer</artifactId>
+				<version>3.0.1</version>
+	</dependency>
+
+	<dependency>
+				<groupId>org.datanucleus</groupId>
+				<artifactId>datanucleus-jdo-query</artifactId>
+				<version>3.0.2</version>
+	</dependency>
+
+	<dependency>
+				<groupId>org.datanucleus</groupId>
+				<artifactId>datanucleus-xml</artifactId>
+				<version>3.1.0-m1</version>
+	</dependency>
+	
+	<!-- For mysql -->		
+	<dependency>
+            	<groupId>mysql</groupId>
+            	<artifactId>mysql-connector-java</artifactId>
+            	<version>5.1.21</version>
+    </dependency>
+
+	<!-- For Prime faces  -->
+	<dependency>
+				 <groupId>org.primefaces</groupId>
+				 <artifactId>primefaces</artifactId>
+				 <version>3.5</version>
+	</dependency>	
+					
+	</dependencies>
+
+	<repositories>
+		
+		  <!-- - for maven-->
+		  <repository>
+				    <id>java.net.m2</id>
+				    <name>java.net m2 repo</name>
+				    <url>http://download.java.net/maven/2</url>
+		  </repository>
+		  
+		  <!-- - for Prime faces-->
+		  <repository>
+					 <id>prime-repo</id>
+					 <name>Prime Repo</name>
+					 <url>http://repository.primefaces.org</url>
+		  </repository>
+		  
+	</repositories>
+	
+
+
+	<build>
+		<finalName>JavaServerFacesEmployeeDatabase</finalName>
+		
+		<plugins>
+			<plugin>
+				<groupId>org.datanucleus</groupId>
+				<artifactId>maven-datanucleus-plugin</artifactId>
+				<version>3.0.2</version>
+				<configuration>
+					<verbose>true</verbose>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>enhance</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.6</source>
+						<target>1.6</target>
+					</configuration>
+				</plugin>
+				
+			<!-- For glassfish -->	
+		
+		<!-- for glassfhis 3 -->
+			<plugin>
+                    <groupId>org.glassfish.maven.plugin</groupId>
+                    <artifactId>maven-glassfish-plugin</artifactId>
+                    <version>2.1</version>
+                    <configuration>
+                    <glassfishDirectory>${glassfish.home}</glassfishDirectory>
+                    <user>${domain.username}</user>
+                    <adminPassword>${domain.password}</adminPassword>
+            
+                    <!-- <passFile>path/to/asadmin/passfile</passFile> -->
+                    <autoCreate>true</autoCreate>
+                    <debug>true</debug>
+                    <echo>false</echo>
+                    <terse>true</terse>
+                    <skip>${test.int.skip}</skip>
+                    <domain>
+                        <name>${domain.name}</name>
+                        <adminPort>4848</adminPort>
+                        <httpPort>8080</httpPort>
+                        <httpsPort>8443</httpsPort>
+                       
+                        <jvmOptions>
+                            <!--option>-Djava.security.auth.login.config=${project.build.testOutputDirectory}/login.conf</option-->
+                        </jvmOptions>
+                       
+                        
+                        </domain>
+                         <components>
+                        <component>
+                            <name>${project.build.finalName}</name>
+                            <artifact>${project.build.directory}/${project.build.finalName}.war</artifact>
+                        </component>
+                    </components>
+                </configuration>
+                </plugin>
+                
+                
+			<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+			<plugin>
+				<groupId>org.eclipse.m2e</groupId>
+				<artifactId>lifecycle-mapping</artifactId>
+				<version>1.0.0</version>
+				<configuration>
+					<lifecycleMappingMetadata>
+						<pluginExecutions>
+							<pluginExecution>
+								<pluginExecutionFilter>
+									<groupId>org.datanucleus</groupId>
+									<artifactId>
+										maven-datanucleus-plugin
+									</artifactId>
+									<versionRange>
+										[3.0.2,)
+									</versionRange>
+									<goals>
+										<goal>enhance</goal>
+									</goals>
+								</pluginExecutionFilter>
+								<action>
+									<ignore></ignore>
+								</action>
+							</pluginExecution>
+						</pluginExecutions>
+					</lifecycleMappingMetadata>
+				</configuration>
+			</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>

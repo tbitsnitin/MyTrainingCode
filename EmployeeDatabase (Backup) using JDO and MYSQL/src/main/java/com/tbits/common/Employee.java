@@ -10,7 +10,7 @@ import javax.jdo.annotations.Persistent;
 import org.codehaus.jackson.annotate.JsonTypeInfo;
 
 @PersistenceCapable(detachable = "true", table = "employee")
-@JsonTypeInfo(use=JsonTypeInfo.Id.CLASS, include=JsonTypeInfo.As.PROPERTY, property="@class")
+
 public class Employee implements Serializable {
     	@NotPersistent
 	private static final long serialVersionUID = 1L;
